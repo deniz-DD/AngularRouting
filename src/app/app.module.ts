@@ -24,15 +24,17 @@ const appRoutes: Routes = [
   }, 
   {
     path: 'servers', 
-    component: ServersComponent
-  }, 
-  {
-    path: 'servers/:id', 
-    component: ServerComponent
-  }, 
-  {
-    path: 'servers/:id/edit', 
-    component: EditServerComponent
+    component: ServersComponent, 
+    children: [
+      {
+        path: ':id', 
+        component: ServerComponent
+      }, 
+      {
+        path: ':id/edit', 
+        component: EditServerComponent
+      }
+    ]
   }, 
   {
     path: '', 
